@@ -1,0 +1,13 @@
+<html>
+    <script>
+        var wsConnection = function () {
+            var socket = new WebSocket('ws://' + window.location.host + '/ws');
+            socket.onmessage = function(event) {
+                document.getElementById("dataFromServer").innerHTML = event.data;
+            };
+        };
+    </script>
+    <body onload="wsConnection();">
+        <span id="dataFromServer">No data yet</span>
+    </body>
+</html>
